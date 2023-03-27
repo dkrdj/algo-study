@@ -3,28 +3,19 @@ package kyukwan;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class P1288 {
+public class P10726 {
 
     public static void main(String[] args) throws IOException {
         IntStream.range(0, Reader.parseInt())
-                .forEach(i -> System.out.println(String.format("#%d %d", i + 1, solve(Reader.parseInt()))));
+                .forEach(i -> System.out.println(String.format("#%d %s", i + 1, solve(Reader.parseInt(), Reader.parseInt()) ? "ON" : "OFF")));
     }
 
-    private static int solve(int input) {
-        Set<Character> digits = "0123456789".chars().mapToObj(c -> (char) c).collect(Collectors.toSet());
-        int num = 0;
-        while (!digits.isEmpty()) {
-            num += input;
-            for (var c : Integer.toString(num).toCharArray()) {
-                digits.remove(c);
-            }
-        }
-        return num;
+    private static boolean solve(int n, int m) {
+        int bitmask = (1 << n) - 1;
+        return (m & bitmask) == bitmask;
     }
 
     private static class Reader {
@@ -47,4 +38,3 @@ public class P1288 {
         }
     }
 }
-
