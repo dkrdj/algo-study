@@ -1,0 +1,4 @@
+package sanghyun;
+
+class Solution {
+}
