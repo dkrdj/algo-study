@@ -1,4 +1,4 @@
-package sanghyun;
+package sanghyun.week3.H_Index;
 
 import java.util.Arrays;
 
